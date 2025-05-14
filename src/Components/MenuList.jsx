@@ -1,5 +1,6 @@
 import PrimaryButton from "./PrimaryButton";
 import { FiPlus } from "react-icons/fi";
+import SecondaryButton from "./SecondaryButton";
 
 const list = [
   {
@@ -25,6 +26,20 @@ const list = [
   },
   {
     id: 4,
+    nama: "Puding Coklat",
+    harga: "5000",
+    kategori: "Side Dish",
+    image: "https://s2.bukalapak.com/uploads/content_attachment/caccf51cb257f2fd3d9d3db5/original/resep_puding_cokelat_pondan_1.jpg",
+  },
+  {
+    id: 4,
+    nama: "Puding Coklat Pak Lebron",
+    harga: "5000",
+    kategori: "Side Dish",
+    image: "https://s2.bukalapak.com/uploads/content_attachment/caccf51cb257f2fd3d9d3db5/original/resep_puding_cokelat_pondan_1.jpg",
+  },
+  {
+    id: 4,
     nama: "Puding Coklat Pak Lebron",
     harga: "5000",
     kategori: "Side Dish",
@@ -42,21 +57,21 @@ const MenuList = () => {
   };
   return (
     <div className="flex flex-col text-white">
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 md:gap-6">
+      <div className="grid gap-5 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 md:gap-4">
         {list.map((list) => (
-          <div className="bg-surface-secondary rounded-lg pb-3 hover:scale-105 transition ease-in-out delay-150" key={list.id}>
-            <div className="relative pb-[75%] overflow-hidden rounded-t-lg">
+          <div className="bg-surface-secondary  rounded-lg pb-3  w-52 hover:scale-105 transition ease-in-out delay-150" key={list.id}>
+            <div className="relative pb-[90%] overflow-hidden rounded-lg mx-2 my-2 w-">
               <img src={list.image} alt="" className="absolute inset-0 w-full h-full object-cover" />
             </div>
 
             <div className="flex flex-col flex-grow px-3 gap-1 mt-2  ">
-              <h1 className="line-clamp-2 text-lg ">{list.nama}</h1>
-              <p className="font-bold text-primary text-2xl">{formatPrice(list.harga)}</p>
+              <h1 className="text-md text-primary font-jakarta ">{list.nama}</h1>
+              <p className="font-bold  text-2xl">{formatPrice(list.harga)}</p>
               <span className="text-sm text-[#8b8b8b]">{list.kategori}</span>
             </div>
-            <div className="pl-3 mt-5 pr-3">
-              <PrimaryButton className="w-full">
-                <FiPlus className="text-lg" /> <span>Pilih</span>
+            <div className="pl-3 mt-4 pr-3">
+              <PrimaryButton className="text-sm">
+                <FiPlus className="text-md " /> <span>Pilih</span>
               </PrimaryButton>
             </div>
           </div>

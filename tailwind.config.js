@@ -8,12 +8,13 @@ export default {
     extend: {
       fontFamily: {
         dmsans: ['"DM Sans"', 'sans-serif'],
+        jakarta: ['"Plus Jakarta Sans"', 'sans-serif'],
       },
        colors: {
         'primary': '#e29b77',
+        'secondary': '#f5d2c1',
         'surface-primary':'#121212',
         'surface-secondary':'#282828',
-
       },
     },
   },
