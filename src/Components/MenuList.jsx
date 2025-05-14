@@ -2,7 +2,7 @@ import PrimaryButton from "./PrimaryButton";
 import { FiPlus } from "react-icons/fi";
 import SecondaryButton from "./SecondaryButton";
 
-const list = [
+export const list = [
   {
     id: 1,
     nama: "Penyetan Tempe",
@@ -57,7 +57,7 @@ const MenuList = () => {
   };
   return (
     <div className="flex flex-col text-white">
-      <div className="grid gap-5 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 md:gap-4">
+      <div className="grid gap-5 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 md:gap-8">
         {list.map((list) => (
           <div className="bg-surface-secondary  rounded-lg pb-3  w-52 hover:scale-105 transition ease-in-out delay-150" key={list.id}>
             <div className="relative pb-[90%] overflow-hidden rounded-lg mx-2 my-2 w-">
