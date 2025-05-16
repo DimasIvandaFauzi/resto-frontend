@@ -34,7 +34,7 @@ const Menu = () => {
     
       <div className="bg-surface-primary flex flex-row ">
         <Navbar />
-        <div className="  flex justify-center items-center flex-col w-full pt-28 pr-5">        
+        <div className="  flex justify-center items-center flex-col w-full pt-24 pr-5">        
           <div className="font-dmsans text-left flex flex-col ">
             <span className="font-bold text-3xl mb-4 text-white"> Menu.</span>
             <MenuList onTambahPesanan={tambahPesanan}/>
