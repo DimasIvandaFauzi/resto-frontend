@@ -2,7 +2,7 @@ import { useState } from "react";
 import MenuList from "../Components/MenuList";
 import Navbar from "../Components/Navbar";
 import Sidebar from "../Components/Sidebar";
-useState
+
 
 const Menu = () => {
   const [pesanan, setPesanan] = useState([]);
@@ -29,7 +29,7 @@ const Menu = () => {
          .filter((item) => item.qty > 0)
     );
   }
-  console.log('data dari menu',pesanan)
+  
   return (
     
       <div className="bg-surface-primary flex flex-row ">
