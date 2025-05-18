@@ -1,8 +1,10 @@
 
+import { Link } from "react-router-dom";
 import PrimaryButton from "./PrimaryButton";
 import { SlBasket } from "react-icons/sl";
+
 const Sidebar = ({pesanan, updatePesanan}) => {
-  console.log(pesanan);
+  console.log('data dari sidebar',pesanan);
   return (
     <div className="w-2/6 pt-20  right-0  h-full bg-surface-secondary  text-white flex flex-col  pl-3 pr-4 pb-3 fixed overflow-x-hidden">
       <div className="h-full  flex-col flex gap-2">
@@ -28,7 +30,9 @@ const Sidebar = ({pesanan, updatePesanan}) => {
           ))}
         </div>
         <div className="">
-          <PrimaryButton className="w-full"><span className="text-lg mr-1"><SlBasket/></span>Pesan</PrimaryButton>
+          <Link to='/pembayaran'>
+          <PrimaryButton className="w-full"><span className="text-lg mr-1" ><SlBasket/></span>Pesan</PrimaryButton>
+          </Link>
         </div>
       </div>
     </div>
