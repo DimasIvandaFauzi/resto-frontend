@@ -5,6 +5,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Menu from './Pages/Menu'
 import Laporan from './Pages/Laporan'
 import Pembayaran from './Pages/Pembayaran'
+import TambahMenu from './Pages/TambahMenu'
+
 
 
 
@@ -15,6 +17,7 @@ function App() {
         <Route path='/' element={<Menu/>} />
         <Route path='/laporan' element={<Laporan/>} />
         <Route path='/pembayaran' element={<Pembayaran/>} />
+        <Route path='/tambahMenu' element={<TambahMenu/>} />
       </Routes>
     </Router>
   )

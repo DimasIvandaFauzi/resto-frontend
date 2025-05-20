@@ -6,7 +6,7 @@ const Navbar = () => {
       <div className="bg-surface-primary flex justify-between items-center p-4">
         <div className="text-2xl font-bold hover:bg-primary px-1 hover:text-black ">Lebron</div>
         <div className="flex space-x-4">
-          <Link>
+          <Link to={"/laporan"}>
             <span>Laporan</span>
           </Link>
           <Link>
