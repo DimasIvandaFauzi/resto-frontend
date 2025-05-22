@@ -4,7 +4,7 @@ import PrimaryButton from "./PrimaryButton";
 import { FiEdit, FiMoreVertical, FiPlus, FiTrash2 } from "react-icons/fi";
 import SecondaryButton from "./SecondaryButton";
 
-const MenuList = ({ onTambahPesanan }) => {
+const MenuList = ({ onTambahPesanan, category }) => {
   const [menus, setMenus] = useState([]);
   const formatPrice = (price) => {
     return new Intl.NumberFormat("id-ID", {
@@ -13,11 +13,12 @@ const MenuList = ({ onTambahPesanan }) => {
       minimumFractionDigits: 0,
     }).format(price);
   };
+  console.log("data dari menuList", category);
   useEffect(() => {
     async function fetchMenu() {
       try {
         const response = await getMenu();
-
+        
         setMenus(response.data.data);
       } catch (err) {
         console.log("error fetching task", err.response?.data?.message || err.message);
@@ -25,11 +26,12 @@ const MenuList = ({ onTambahPesanan }) => {
     }
     fetchMenu();
   }, []);
-  console.log(menus);
+  const filteredMenus = category ? menus.filter((menu) => menu.CATEGORY === category) : menus;
+  
   return (
     <div className="flex flex-col text-white">
       <div className="grid gap-5 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 md:gap-8">
-        {menus.map((menu, index) => (
+        {filteredMenus.map((menu, index) => (
           <div className="bg-surface-secondary  rounded-lg pb-3  w-52 hover:scale-105 transition ease-in-out delay-150" key={index}>
             <div className="relative pb-[80%] overflow-hidden rounded-lg mx-2 my-2 w-">
               <img src="https://s2.bukalapak.com/uploads/content_attachment/caccf51cb257f2fd3d9d3db5/original/resep_puding_cokelat_pondan_1.jpg" alt="" className="absolute inset-0 w-full h-full object-cover" />

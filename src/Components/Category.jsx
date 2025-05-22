@@ -3,7 +3,7 @@ import { getMenu } from "../services/API";
 
 const Category = ({Category}) => {
   const [categories, setCategories] = useState([]);
-  const [activeCategory, setActiveCategory] = useState(null); // ⬅️ untuk kategori aktif
+  const [activeCategory, setActiveCategory] = useState(null);
 
   useEffect(() => {
     async function fetchMenu() {
@@ -40,11 +40,11 @@ const Category = ({Category}) => {
       {filteredCategories.map((category, index) => (
         <li
           key={index}
-          onClick={()=>handleClick(category)} // ⬅️ klik buat set aktif
+          onClick={()=>handleClick(category)} 
           className={`cursor-pointer w-20 text-center outline outline-primary px-2 rounded-full py-0.5 transition duration-200
             ${
               activeCategory === category
-                ? "bg-primary text-black" // kalau aktif
+                ? "bg-primary text-black" 
                 : "bg-primary/0 text-white "
             }`}
         >
