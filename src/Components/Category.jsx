@@ -34,7 +34,7 @@ const Category = ({Category}) => {
         .filter((cat) => allowedCategories.includes(cat))
     )
   );
-  console.log(activeCategory)
+  
   return (
     <ul className="flex flex-row gap-4 text-white font-dmsans py-4 text-sm">
       {filteredCategories.map((category, index) => (

@@ -25,7 +25,7 @@ const Menu = () => {
   const updatePesanan = (id, delta) => {
     setPesanan((prev) => prev.map((item) => (item.ID_MENU === id ? { ...item, qty: item.qty + delta } : item)).filter((item) => item.qty > 0));
   };
-  console.log('data dari menu',category);
+
   return (
     <div className="bg-surface-primary flex flex-row min-h-screen pb-20">
       <Navbar />
@@ -36,7 +36,7 @@ const Menu = () => {
             <h1 className="text-4xl tracking-wide text-white"> Menu. </h1>
             <Link to={"/tambahmenu"} className="text-black rounded text-lg p-1 mr-1 bg-primary hover:bg-primary/0 hover:text-primary hover:outline hover:outline-primary transition-all duration-200 ease-in-out">
               <FiPlus />
-              {/* <PrimaryButton className="text-xs font-semibold rounded-lg gap-1"> <FiPlus />Menu</PrimaryButton> */}
+             
             </Link>
           </div>
           <Category Category={setCategory} />

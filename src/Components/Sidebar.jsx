@@ -1,8 +1,10 @@
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import PrimaryButton from "./PrimaryButton";
 import { SlBasket } from "react-icons/sl";
 
+
 const Sidebar = ({ pesanan, updatePesanan }) => {
+  const navigate = useNavigate();
   const formatPrice = (price) => {
     return new Intl.NumberFormat("id-ID", {
       style: "currency",
@@ -13,7 +15,9 @@ const Sidebar = ({ pesanan, updatePesanan }) => {
   const totalHarga = pesanan.reduce((total, item) => {
     return total + item.PRICE * item.qty;
   }, 0);
-  console.log('pesanan', pesanan);
+  const handlePesanan = () =>{
+    navigate('/pembayaran')
+  }
   return (
     <div className="w-2/6 pt-20  right-0  h-full bg-surface-secondary  text-white flex flex-col  pl-3 pr-4 pb-3 fixed overflow-x-hidden">
       <div className="h-full  flex-col flex gap-2">
@@ -22,7 +26,7 @@ const Sidebar = ({ pesanan, updatePesanan }) => {
           {pesanan.map((pesanan) => (
             <div className="flex rounded-md gap-1 items-center px-1  " key={pesanan.ID_MENU}>
               <div className="">
-                <img src='https://s2.bukalapak.com/uploads/content_attachment/caccf51cb257f2fd3d9d3db5/original/resep_puding_cokelat_pondan_1.jpg' alt="" width={50} />
+                <img src="https://s2.bukalapak.com/uploads/content_attachment/caccf51cb257f2fd3d9d3db5/original/resep_puding_cokelat_pondan_1.jpg" alt="" width={50} />
               </div>
               <div className="flex justify-between w-full">
                 <div className="">
@@ -42,14 +46,12 @@ const Sidebar = ({ pesanan, updatePesanan }) => {
           Total Harga: <span className="font-semibold">{formatPrice(totalHarga)}</span>
         </div>
         <div className="">
-          <Link to="/pembayaran">
-            <PrimaryButton className="w-full">
-              <span className="text-lg mr-1">
-                <SlBasket />
-              </span>
-              Pesan
-            </PrimaryButton>
-          </Link>
+          <PrimaryButton className="w-full" onClick={handlePesanan} disabled={pesanan.length === 0}>
+            <span className="text-lg mr-1">
+              <SlBasket />
+            </span>
+            Pesan
+          </PrimaryButton>
         </div>
       </div>
     </div>

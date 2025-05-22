@@ -13,7 +13,7 @@ const MenuList = ({ onTambahPesanan, category }) => {
       minimumFractionDigits: 0,
     }).format(price);
   };
-  console.log("data dari menuList", category);
+  
   useEffect(() => {
     async function fetchMenu() {
       try {
