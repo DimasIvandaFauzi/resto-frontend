@@ -28,6 +28,13 @@ const TambahMenu = () => {
     try {
       let res = await createMenu(newMenu.ID_MENU, newMenu.NAME, newMenu.DESCRIPTION, newMenu.PRICE, newMenu.CATEGORY, newMenu.STOCK);
       console.log(res);
+      setFormData({
+        NAME: "",
+        DESCRIPTION: "",
+        PRICE: "",
+        STOCK: "",
+        CATEGORY: "",
+      });
     } catch (err) {
       console.log("error", err.response?.data?.message || err.message);
     }

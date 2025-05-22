@@ -10,6 +10,7 @@ import SubHeading from "../Components/subHeading";
 
 const Menu = () => {
   const [pesanan, setPesanan] = useState([]);
+  const [category, setCategory] = useState([]);
   const tambahPesanan = (item) => {
     console.log("data dari app", item);
     setPesanan((prev) => {
@@ -24,7 +25,7 @@ const Menu = () => {
   const updatePesanan = (id, delta) => {
     setPesanan((prev) => prev.map((item) => (item.ID_MENU === id ? { ...item, qty: item.qty + delta } : item)).filter((item) => item.qty > 0));
   };
-
+  console.log('data dari menu',category);
   return (
     <div className="bg-surface-primary flex flex-row ">
       <Navbar />
@@ -38,7 +39,7 @@ const Menu = () => {
               {/* <PrimaryButton className="text-xs font-semibold rounded-lg gap-1"> <FiPlus />Menu</PrimaryButton> */}
             </Link>
           </div>
-          <Category />
+          <Category Category={setCategory} />
           <MenuList onTambahPesanan={tambahPesanan} />
         </div>
       </div>
