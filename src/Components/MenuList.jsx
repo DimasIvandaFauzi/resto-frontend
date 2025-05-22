@@ -36,6 +36,9 @@ const MenuList = ({ onTambahPesanan, category }) => {
     setShowModal(true)
     setSelectedMenu(menu)
   }
+  const handleCloseModal = () =>{
+    setShowModal(false)
+  }
   return (
     <div className="flex flex-col text-white">
       <div className="grid gap-5 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 md:gap-8">
@@ -61,7 +64,7 @@ const MenuList = ({ onTambahPesanan, category }) => {
             </div>
           </div>
         ))}
-        {showModal && (<UpdateMenu menu={selectedMenu}/>)}
+        {showModal && (<UpdateMenu menu={selectedMenu} handleCloseModal={handleCloseModal}/>)}
       </div>
     </div>
   );
