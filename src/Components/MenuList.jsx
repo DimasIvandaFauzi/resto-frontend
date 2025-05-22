@@ -3,8 +3,12 @@ import { getMenu } from "../services/API";
 import PrimaryButton from "./PrimaryButton";
 import { FiEdit, FiMoreVertical, FiPlus, FiTrash2 } from "react-icons/fi";
 import SecondaryButton from "./SecondaryButton";
+import UpdateMenu from "../Pages/UpdateMenu";
+
 
 const MenuList = ({ onTambahPesanan, category }) => {
+  const [showModal, setShowModal] = useState(false)
+  const [selectedMenu, setSelectedMenu] = useState(null)
   const [menus, setMenus] = useState([]);
   const formatPrice = (price) => {
     return new Intl.NumberFormat("id-ID", {
@@ -26,8 +30,12 @@ const MenuList = ({ onTambahPesanan, category }) => {
     }
     fetchMenu();
   }, []);
-  const filteredMenus = category ? menus.filter((menu) => menu.CATEGORY === category) : menus;
   
+  const filteredMenus = category ? menus.filter((menu) => menu.CATEGORY === category) : menus;
+  const handleUpdateMenu = (menu) =>{
+    setShowModal(true)
+    setSelectedMenu(menu)
+  }
   return (
     <div className="flex flex-col text-white">
       <div className="grid gap-5 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 md:gap-8">
@@ -47,12 +55,13 @@ const MenuList = ({ onTambahPesanan, category }) => {
               <PrimaryButton className="text-sm w-full " onClick={() => onTambahPesanan(menu)}>
                 <FiPlus className="text-md " /> <span>Pilih</span>
               </PrimaryButton>
-              <span className="text-[#8b8b8b] text-xl">
+              <button className="text-[#8b8b8b] text-xl" onClick={() =>handleUpdateMenu(menu)}>
                 <FiMoreVertical />
-              </span>
+              </button>
             </div>
           </div>
         ))}
+        {showModal && (<UpdateMenu menu={selectedMenu}/>)}
       </div>
     </div>
   );

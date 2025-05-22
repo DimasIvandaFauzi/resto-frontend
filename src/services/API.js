@@ -18,3 +18,14 @@ export const getMenu = async () =>{
         withCredentials:true
     })
 }
+export const updateMenu = async (id, name, description, price, category, stock) => {
+    return await axios.put(`${API_URL}menu/${id}`, {
+        name,
+        description,
+        price,
+        category,
+        stock
+    },{
+        withCredentials:true
+    });
+}
