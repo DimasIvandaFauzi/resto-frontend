@@ -1,9 +1,13 @@
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import PrimaryButton from "./PrimaryButton";
 import { SlBasket } from "react-icons/sl";
+import DangerModal from "./DangerModal";
+import { useState } from "react";
+
 
 
 const Sidebar = ({ pesanan, updatePesanan }) => {
+  const [showDangerModal, setShowDangerModal] = useState(false)
   const navigate = useNavigate();
   const formatPrice = (price) => {
     return new Intl.NumberFormat("id-ID", {
@@ -16,10 +20,14 @@ const Sidebar = ({ pesanan, updatePesanan }) => {
     return total + item.PRICE * item.qty;
   }, 0);
   const handlePesanan = () =>{
-    navigate('/pembayaran')
+    setShowDangerModal(true)
+  }
+  const handleClose = ()=>{
+    setShowDangerModal(false)
   }
   return (
     <div className="w-2/6 pt-20  right-0  h-full bg-surface-secondary  text-white flex flex-col  pl-3 pr-4 pb-3 fixed overflow-x-hidden">
+      {showDangerModal && (<DangerModal totalHarga={totalHarga} handleClose={handleClose}/>)}
       <div className="h-full  flex-col flex gap-2">
         <h1 className="font-jakarta uppercase  font-semibold text-xl text-primary">Daftar Pesanan</h1>
         <div className="flex flex-col gap-4 text-lg flex-grow overflow-y-auto ">

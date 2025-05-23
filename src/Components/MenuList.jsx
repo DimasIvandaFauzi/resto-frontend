@@ -6,8 +6,11 @@ import SecondaryButton from "./SecondaryButton";
 import UpdateMenu from "../Pages/UpdateMenu";
 
 
+
+
 const MenuList = ({ onTambahPesanan, category }) => {
   const [showModal, setShowModal] = useState(false)
+  
   const [selectedMenu, setSelectedMenu] = useState(null)
   const [menus, setMenus] = useState([]);
   const formatPrice = (price) => {
@@ -65,6 +68,7 @@ const MenuList = ({ onTambahPesanan, category }) => {
           </div>
         ))}
         {showModal && (<UpdateMenu menu={selectedMenu} handleCloseModal={handleCloseModal}/>)}
+        
       </div>
     </div>
   );
