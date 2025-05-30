@@ -1,12 +1,75 @@
-# React + Vite
+# Resto Lebron - Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the frontend for **Resto Lebron**, a restaurant management application. It allows users to browse the menu, place orders, manage menu items (for administrators), and simulate a payment process. The application is built using React, Vite, and Tailwind CSS.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+* **Menu Display**:
+    * Browse menu items categorized into "Makanan" (Food), "Minuman" (Drinks), and "Desert" (Desserts).
+    * View item details including name, price, and image.
+    * Filter menu items by category.
+* **Order Management (Pesanan)**:
+    * Add items to an order list (sidebar).
+    * Adjust the quantity of items in the order.
+    * View the total price of the current order.
+    * Initiate a payment process for the order.
+* **Menu Item Management (Admin)**:
+    * Add new menu items with details like name, description, price, stock, and category.
+    * Update existing menu items (stock, description, category, name).
+    * Delete menu items.
+* **Payment Simulation**:
+    * Modal for selecting payment type (Cash or Debit).
+    * For cash payments, input amount and see calculated change.
+* **Navigation**:
+    * Dedicated pages for Menu, Laporan (Reports), Pembayaran (Payment confirmation/history), and Pesanan (Order details/history).
+* **Styling**:
+    * Utilizes Tailwind CSS for a utility-first styling approach.
+    * Custom fonts: DM Sans and Plus Jakarta Sans.
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+* **Framework/Library**: React 19
+* **Build Tool**: Vite
+* **Routing**: React Router DOM v7
+* **Styling**: Tailwind CSS v3, PostCSS
+* **HTTP Client**: Axios
+* **Linting**: ESLint
+* **Icons**: React Icons
+
+## Prerequisites
+
+* Node.js (v18.x or later recommended, based on ESLint config and Vite/Tailwind common practices)
+* npm (or yarn)
+
+## Getting Started
+
+1.  **Clone the repository:**
+    ```bash
+    git clone <repository-url>
+    ```
+2.  **Navigate to the project directory:**
+    ```bash
+    cd fe-resto-lebron
+    ```
+    (Project name based on `package.json`)
+3.  **Install dependencies:**
+    ```bash
+    npm install
+    ```
+    (or `yarn install`)
+
+## Available Scripts
+
+In the project directory, you can run:
+
+* **`npm run dev`**
+    Runs the app in development mode using Vite. Open [http://localhost:5173](http://localhost:5173) (default Vite port) to view it in the browser. The page will reload if you make edits.
+
+* **`npm run build`**
+    Builds the app for production to the `dist` folder. It correctly bundles React in production mode and optimizes the build for the best performance.
+
+* **`npm run lint`**
+    Lints the project files using ESLint to check for code quality and style issues.
+
+* **`npm run preview`**
+    Serves the production build from the `dist` folder locally. This is a way to test the production build before deploying.
