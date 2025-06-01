@@ -47,3 +47,13 @@ export const deleteMenu = async (id) => {
     }
   );
 };
+
+export const createPesanan = async (money, payment_method, items, cashier) => {
+  return await axios.post(
+    `${API_URL}transaction/`,
+    { items, money, payment_method, cashier:"" },
+    {
+      withCredentials: true,
+    }
+  );
+};

@@ -26,7 +26,7 @@ const Category = ({Category}) => {
       Category(null)
     }
   };
-  const allowedCategories = ["Makanan", "Minuman", "Desert"];
+  const allowedCategories = ["Makanan", "Minuman", "Dessert"];
   const filteredCategories = Array.from(
     new Set(
       categories

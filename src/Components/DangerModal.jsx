@@ -2,15 +2,15 @@ import { useState } from "react";
 import PrimaryButton from "./PrimaryButton";
 import { FiCheck, FiX } from "react-icons/fi";
 import { Link } from "react-router-dom";
+import { createPesanan } from "../services/API";
 
-const DangerModal = ({ totalHarga, handleClose }) => {
+const DangerModal = ({ totalHarga, handleClose, pesanan }) => {
   const [isCash, setIsCash] = useState(true);
   const [uang, setUang] = useState(0);
   const handleChange = (e) => {
-    const rawValue = e.target.value.replace(/[^0-9]/g, ""); // cuma ambil angka
+    const rawValue = e.target.value.replace(/[^0-9]/g, "");
     const numericValue = parseInt(rawValue || "0", 10);
     setUang(numericValue);
-    setUang(value);
   };
   const formatPrice = (price) => {
     return new Intl.NumberFormat("id-ID", {
@@ -19,6 +19,24 @@ const DangerModal = ({ totalHarga, handleClose }) => {
       minimumFractionDigits: 0,
     }).format(price);
   };
+  const handlePesanan = async (uang, pesanan) => {
+    const items = pesanan.map(item => ({
+    id_menu: item.ID_MENU,
+    quantity: item.qty 
+  }));
+    const payment_method = isCash ? "CASH" : "DEBIT";
+    const uangs = isCash ? Number(uang) : totalHarga;
+    const cashier = "admin";
+    try {
+      let res = await createPesanan(uangs, payment_method, items, cashier);
+      console.log(res);
+      handleClose()
+    } catch (err) {
+      console.log(err.response?.data || err.message);
+    }
+  };
+  console.log("data dari modal", pesanan);
+  console.log("data dari modal", uang);
   return (
     <div className="fixed w-screen h-screen bg-black/15 backdrop-blur-sm top-0 left-0 flex justify-center items-center z-">
       <div className="bg-surface-primary justify-center flex flex-col px-4 py-4 text-center outline rounded-lg relative">
@@ -48,8 +66,8 @@ const DangerModal = ({ totalHarga, handleClose }) => {
               <div> Silahkan TF ke </div>
             )}
           </div>
-          <Link to={"/pembayaran"}>
-            <PrimaryButton className="w-full">
+          <Link>
+            <PrimaryButton className="w-full" onClick={() => handlePesanan(uang, pesanan)} disabled={uang<totalHarga}>
               <span className="text-lg pr-1">
                 <FiCheck />
               </span>{" "}

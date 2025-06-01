@@ -85,7 +85,7 @@ const TambahMenu = () => {
             <option value="">Pilih Category</option>
             <option value="Makanan">Makanan</option>
             <option value="Minuman">Minuman</option>
-            <option value="Desert">Desert</option>
+            <option value="Dessert">Dessert</option>
           </select>
         </div>
         <div className="flex ">

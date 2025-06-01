@@ -25,9 +25,10 @@ const Sidebar = ({ pesanan, updatePesanan }) => {
   const handleClose = ()=>{
     setShowDangerModal(false)
   }
+  
   return (
     <div className="w-2/6 pt-20  right-0  h-full bg-surface-secondary  text-white flex flex-col  pl-3 pr-4 pb-3 fixed overflow-x-hidden">
-      {showDangerModal && (<DangerModal totalHarga={totalHarga} handleClose={handleClose}/>)}
+      {showDangerModal && (<DangerModal totalHarga={totalHarga} handleClose={handleClose} pesanan={pesanan} />)}
       <div className="h-full  flex-col flex gap-2">
         <h1 className="font-jakarta uppercase  font-semibold text-xl text-primary">Daftar Pesanan</h1>
         <div className="flex flex-col gap-4 text-lg flex-grow overflow-y-auto ">
