@@ -24,12 +24,13 @@ const DangerModal = ({ totalHarga, handleClose, pesanan }) => {
     id_menu: item.ID_MENU,
     quantity: item.qty 
   }));
-    const payment_method = isCash ? "CASH" : "DEBIT";
+    const payment_method = isCash ? "CASH" : "CARD";
     const uangs = isCash ? Number(uang) : totalHarga;
     const cashier = "admin";
     try {
       let res = await createPesanan(uangs, payment_method, items, cashier);
       console.log(res);
+      alert("Pesanan Berhasil Dibuat");
       handleClose()
     } catch (err) {
       console.log(err.response?.data || err.message);
@@ -67,7 +68,7 @@ const DangerModal = ({ totalHarga, handleClose, pesanan }) => {
             )}
           </div>
           <Link>
-            <PrimaryButton className="w-full" onClick={() => handlePesanan(uang, pesanan)} disabled={uang<totalHarga}>
+            <PrimaryButton className="w-full" onClick={() => handlePesanan(uang, pesanan)} >
               <span className="text-lg pr-1">
                 <FiCheck />
               </span>{" "}
