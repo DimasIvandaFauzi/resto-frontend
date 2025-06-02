@@ -67,7 +67,7 @@ export const getTransaksi = async () => {
     }
   );
 };
-export const laporan = async (startDate, endDate) =>{
+export const getLaporan = async (startDate, endDate) =>{
   return await axios.get(
     `${API_URL}report/daily-revenue?start_date=${startDate}&end_date=${endDate}`,
   )
